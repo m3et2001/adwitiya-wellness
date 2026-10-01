@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Building2, Compass, Heart, Home, Leaf, Mail, Menu, Phone, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import logoAsset from "@/assets/adwitiya-logo-new.png.asset.json";
+import logo from "@/assets/adwitiya-logo-new.webp";
 import { navItems } from "@/data/site";
 import { Button } from "./Button";
 import { BookingDialog } from "./BookingDialog";
@@ -16,7 +16,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
     <header className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${scrolled || menu ? "pt-3" : "pt-6"}`}>
       <div className={`mx-auto flex max-w-[84rem] items-center justify-between gap-4 px-4 transition-all duration-500 sm:px-6 ${scrolled || menu ? "" : ""}`}>
         <div className={`flex w-full items-center justify-between gap-6 rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-5 ${scrolled || menu ? "border-border/60 bg-background/80 shadow-soft backdrop-blur-xl" : "border-transparent bg-background/40 backdrop-blur-md"}`}>
-          <Link to="/" aria-label="ADWITYA WELLNESS home" className="inline-flex min-w-0 items-center"><img src="../assets/adwitiya-logo-new.webp" alt="ADWITYA WELLNESS" className="h-16 w-auto max-w-[180px] object-contain" /></Link>
+          <Link to="/" aria-label="ADWITYA WELLNESS home" className="inline-flex min-w-0 items-center"><img src={logo} alt="ADWITYA WELLNESS" className="h-16 w-auto max-w-[180px] object-contain" /></Link>
           <nav aria-label="Primary navigation" className="hidden items-center gap-0 xl:flex">{navItems.map(item => <Link key={item.to} to={item.to} activeOptions={{ exact: item.to === "/" }} className="rounded-full px-3 py-2 text-[0.65rem] font-medium uppercase tracking-[0.08em] text-foreground/75 transition-colors duration-300 hover:bg-muted/70 hover:text-primary" activeProps={{ className: "rounded-full bg-primary px-3 py-2 text-[0.65rem] font-medium uppercase tracking-[0.08em] text-primary-foreground" }}>{item.label}</Link>)}</nav>
           <div className="hidden xl:flex"><Button onClick={() => setBooking(true)}>Book Your Experience</Button></div>
           <button className="grid size-11 place-items-center rounded-full border border-border/60 bg-background/70 text-primary xl:hidden" aria-label={menu ? "Close menu" : "Open menu"} aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X /> : <Menu />}</button>
@@ -27,7 +27,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
         <aside aria-label="Mobile menu" className="fixed inset-y-0 right-0 flex w-[min(88vw,23rem)] flex-col overflow-hidden border-l border-border/60 bg-card shadow-elevated xl:hidden">
           <div className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-border/70 px-6 py-5">
             <Link to="/" aria-label="ADWITYA WELLNESS home" className="flex min-w-0 items-center">
-              <img src="/src/assets/adwitiya-logo-new.webp" alt="ADWITYA WELLNESS" className="h-14 w-auto max-w-[150px] object-contain" />
+              <img src={logo} alt="ADWITYA WELLNESS" className="h-14 w-auto max-w-[150px] object-contain" />
             </Link>
             <button aria-label="Close menu" onClick={() => setMenu(false)} className="grid size-11 shrink-0 place-items-center rounded-full border border-border bg-background text-primary transition-colors hover:bg-muted">
               <X className="size-5" />
